@@ -1,27 +1,41 @@
 package br.com.loja.model;
 
-public class Produto {
-	
-	private Long id;
+import java.math.BigDecimal;
+
+import br.com.loja.abstracts.AbstractJSF;
+import br.com.loja.enums.Categoria;
+
+public class Produto extends AbstractJSF {
 	
 	private String nome;
-	
 	private String descricao;
-	
+	private BigDecimal valor;
+	private Fornecedor fornecedor;
 	private Categoria categoria;
 	
-//	private Fabricante fabricante;
-//	
-//	private Fornecedor fornecedor;
-	
-	private Double custo;
-
-	public Long getId() {
-		return id;
+	public Produto(String nome, String descricao, BigDecimal valor, Fornecedor fornecedor, Categoria categoria) {
+		this.nome = nome;
+		this.descricao = descricao;
+		this.valor = valor;
+		this.fornecedor = fornecedor;
+		this.categoria = categoria;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Produto [nome=");
+		builder.append(nome);
+		builder.append(", descricao=");
+		builder.append(descricao);
+		builder.append(", valor=");
+		builder.append(valor);
+		builder.append(", fornecedor=");
+		builder.append(fornecedor);
+		builder.append(", categoria=");
+		builder.append(categoria);
+		builder.append("]");
+		return builder.toString();
 	}
 
 	public String getNome() {
@@ -40,6 +54,22 @@ public class Produto {
 		this.descricao = descricao;
 	}
 
+	public BigDecimal getValor() {
+		return valor;
+	}
+
+	public void setValor(BigDecimal valor) {
+		this.valor = valor;
+	}
+
+	public Fornecedor getFornecedor() {
+		return fornecedor;
+	}
+
+	public void setFornecedor(Fornecedor fornecedor) {
+		this.fornecedor = fornecedor;
+	}
+
 	public Categoria getCategoria() {
 		return categoria;
 	}
@@ -47,31 +77,5 @@ public class Produto {
 	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
 	}
-
-//	public Fabricante getFabricante() {
-//		return fabricante;
-//	}
-//
-//	public void setFabricante(Fabricante fabricante) {
-//		this.fabricante = fabricante;
-//	}
-//
-//	public Fornecedor getFornecedor() {
-//		return fornecedor;
-//	}
-//
-//	public void setFornecedor(Fornecedor fornecedor) {
-//		this.fornecedor = fornecedor;
-//	}
-
-	public Double getCusto() {
-		return custo;
-	}
-
-	public void setCusto(Double custo) {
-		this.custo = custo;
-	}
 	
-	
-
 }
